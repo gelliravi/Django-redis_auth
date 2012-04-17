@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+# Register signals as early as possible!
+import redisauth.signals
