@@ -9,11 +9,14 @@ from django.dispatch import receiver
 
 # Import redis
 import redis
-redisClient = redis.Redis(settings.REDIS_HOST)
 
 # Register userLoggedIn signal
 @receiver(user_logged_in)
 def userLoggedIn(sender, **kwargs):
+  # Set up redis
+  redisClient = redis.Redis(settings.REDIS_HOST)
+  
+  # Read out parameters
   user = kwargs['user']
   session = kwargs['request'].session
   sessionKey = session.session_key
@@ -40,6 +43,10 @@ def userLoggedIn(sender, **kwargs):
 # Register userLoggedOut signal
 @receiver(user_logged_out)
 def userLoggedOut(sender, **kwargs):
+  # Set up redis
+  redisClient = redis.Redis(settings.REDIS_HOST)
+  
+  # Read out parameters
   session = kwargs['request'].session
   user = kwargs['user']
   print "%s(%s) logged out" % (user, session.session_key)
