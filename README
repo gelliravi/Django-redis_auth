@@ -1,0 +1,13 @@
+Django Redis Auth
+Author: Mark Vismonte
+Date: 4/16/2012
+
+Description:
+This project is meant to be a template project for Django 1.3 projects.
+Specifically, it includes an application called redisauth (Redis Auth).  This
+will store a user's session along is his/her information in redis upon login and
+will be deleted after the session expires or the user logs out.  This is meant
+as a template we can use when starting projects that include having a django web
+server as well as a node.js/socket.io server.  This provides the socket.io
+server with a way to authenticate a user with the session.  The session can be
+accessed on the client side using a library such as jquery cookie.
