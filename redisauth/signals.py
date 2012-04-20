@@ -6,8 +6,6 @@ from django.conf import settings
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.contrib.sessions.models import Session
 from django.dispatch import receiver
-
-# Import redis
 import redis
 
 # Register userLoggedIn signal
